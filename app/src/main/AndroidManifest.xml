@@ -9,6 +9,10 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,18 +35,23 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".Register"
-            android:label="Register"/>
+        <activity
+            android:name=".Register"
+            android:label="Register" />
         <activity android:name=".mailRegister" />
         <activity android:name=".phoneRegister" />
         <activity android:name=".MainPage" />
         <activity
-            android:name=".AppSettings"
-            android:label="Settings" />
+            android:name=".UploadManual"
+            android:label="Upload Manually" />
         <activity
-            android:name=".profile"
-            android:label="Profile" />
-
+            android:name=".Account_Settings"
+            android:label="Account Settings" />
+        <activity
+            android:name=".ChangePassword"
+            android:label="Change Password" />
+        <activity android:name=".Verify_otp"
+            android:label="Verify"></activity>
     </application>
 
 </manifest>

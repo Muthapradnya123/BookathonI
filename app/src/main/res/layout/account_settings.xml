@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/change_pass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:outlineProvider="bounds"
+        android:paddingLeft="16dp"
+        android:text="Change Password"
+        android:textAllCaps="false"
+        android:onClick="changePass"
+        android:textColor="@color/text_black_100"
+        android:textSize="20dp" />
+    <include
+        layout="@layout/navigation_drawer_divider"/>
+    <TextView
+        android:id="@+id/deleteAcc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:outlineProvider="bounds"
+        android:paddingLeft="16dp"
+        android:text="Delete Account"
+        android:textAllCaps="false"
+        android:textColor="@color/text_black_100"
+        android:textSize="20dp" />
+    <include
+        layout="@layout/navigation_drawer_divider"/>
 
 </LinearLayout>

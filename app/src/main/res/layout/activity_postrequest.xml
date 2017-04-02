@@ -4,13 +4,7 @@
     android:id="@+id/activity_postrequest"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.bookathon.postrequest">
-
-    <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    tools:context="com.android.bookathon.post_request">
 
     <TextView
         android:id="@+id/textView9"

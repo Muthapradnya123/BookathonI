@@ -1,6 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aboutus"
+    tools:context="com.android.bookathon.aboutus">
 
-</LinearLayout>
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="215dp">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="4.Aishwarya Patil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ Aishwarya"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/Pradnya"
+            android:layout_alignStart="@+id/Pradnya"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:text="Developers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:id="@+id/Developers"
+            android:textSize="40sp"
+            android:textColor="@color/amber_500"
+            android:textStyle="normal|bold"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@+id/Pooja" />
+
+        <TextView
+            android:text="3.Pradnya Mutha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Pradnya"
+            android:textSize="30sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/Pratiksha"
+            android:layout_alignStart="@+id/Pratiksha" />
+
+        <TextView
+            android:text="1.Pooja Hole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="48dp"
+            android:id="@+id/Pooja"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_below="@+id/Developers"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="2.Pratiksha Jadhav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:id="@+id/Pratiksha"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/Pooja"
+            android:layout_alignStart="@+id/Pooja" />
+
+        <TextView
+            android:text=" Bookathon Version 1.0.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="89dp" />
+
+    </RelativeLayout>
+</FrameLayout>

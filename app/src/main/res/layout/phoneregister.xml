@@ -55,7 +55,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:hint="Use minimum 6 characters"
-        android:textSize="13dp" />
+        android:textSize="13dp"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/nextreg2"

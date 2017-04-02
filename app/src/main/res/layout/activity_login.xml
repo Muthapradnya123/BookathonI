@@ -4,55 +4,39 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.bookathon.MainActivity">
+    tools:context="com.android.bookathon.MainActivity" >
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/openbook"
-        android:alpha="0.6"
-        />
-    <TextView
-        android:id="@+id/txtusr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
-        android:text="Username"
-        android:textColor="@android:color/black"
-        android:textSize="18dp" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/book" />
 
     <EditText
-        android:id="@+id/mailtxt"
-        android:layout_width="295dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/txtusr"
-        android:layout_alignStart="@+id/txtusr"
-        android:layout_below="@+id/txtusr"
-        android:hint="EmailID/Phone Number"
-        android:textSize="15dp"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/txtpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mailtxt"
+        android:id="@+id/username"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/text_white_secondary_70"
         android:layout_marginLeft="20dp"
-        android:gravity="center_horizontal"
-        android:text="Password"
-        android:textColor="@android:color/black"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="250dp"
+        android:hint="  Phone Number / Email address"
+        android:textAlignment="gravity"
+        android:gravity="fill_vertical"
+        android:textColorHint="@color/text_black_100"
         android:textSize="18dp" />
 
     <EditText
         android:id="@+id/passwdtxt"
-        android:layout_width="295dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/txtpass"
-        android:layout_alignStart="@+id/txtpass"
-        android:layout_below="@+id/txtpass"
-        android:hint="Password"
-        android:textSize="15dp" />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/username"
+        android:layout_marginLeft="20dp"
+        android:background="@color/text_white_secondary_70"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:hint="  Password"
+        android:textColorHint="@android:color/background_dark"
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/passfor"
@@ -61,10 +45,11 @@
         android:layout_alignEnd="@+id/passwdtxt"
         android:layout_alignRight="@+id/passwdtxt"
         android:layout_below="@+id/passwdtxt"
+        android:textColor="@color/textPrimary"
         android:gravity="center"
         android:text="Forgot Password?"
         android:onClick="forgotPass"
-        android:textColorHighlight="@android:color/black"/>
+        android:textColorHighlight="@android:color/white"/>
 
     <TextView
         android:id="@+id/Register"
@@ -77,28 +62,32 @@
         android:layout_below="@+id/fblogin"
         android:gravity="center"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/text_white_text_icons_100"
         />
 
     <Button
         android:id="@+id/Login"
-        android:layout_width="170dp"
-        android:layout_height="70px"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
         android:layout_below="@+id/passfor"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:background="@android:color/holo_blue_dark"
-        android:gravity="center"
+        android:layout_margin="20dp"
+        android:background="@color/text_white_secondary_70"
+        android:gravity="fill_vertical"
         android:text="Login"
-        android:textColor="@android:color/white"
-        android:textSize="10dp" />
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/fblogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:gravity="center_horizontal"
         android:layout_below="@+id/Login"
-        android:layout_centerHorizontal="true" />
+         />
 
 </RelativeLayout>

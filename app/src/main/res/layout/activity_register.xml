@@ -1,81 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.android.bookathon.Register">
 
-    <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/category"
-        android:layout_toEndOf="@+id/tabLayout2"
-        android:layout_toRightOf="@+id/tabLayout2" />
+        android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tabLayout2"
-        android:layout_marginTop="19dp" />
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/toolbar_layout"></include>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></android.support.design.widget.TabLayout>
-
-    <TabHost
-        android:id="@+id/tabhost1"
-        android:layout_width="300dip"
-        android:layout_height="430dip"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp">
-
-
-        <LinearLayout
+        <Spinner
+            android:id="@+id/category"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tool_bar"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" />
 
+        <TabHost
+            android:id="@+id/tabhost1"
+            android:layout_width="360dip"
+            android:layout_height="370dip"
+            android:layout_below="@id/category"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp">
 
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="300dp"
-                android:layout_height="65dp"
-                android:layout_gravity="center"
-                android:background="@color/text_white_secondary_70" />
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="360dp"
+                android:orientation="vertical">
 
-                <include
-                    android:id="@+id/mailreg"
-                    layout="@layout/emailregister"
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:background="@color/text_white_secondary_70" />
+
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
-                </include>
+                    <FrameLayout
+                        android:id="@android:id/tabcontent"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp">
 
-                <include
-                    android:id="@+id/phonereg"
-                    layout="@layout/phoneregister"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Phone"></include>
-            </FrameLayout>
-        </LinearLayout>
+                        <include
+                            android:id="@+id/mailreg"
+                            layout="@layout/emailregister"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-    </TabHost>
+                        </include>
 
+                    </FrameLayout>
+                </ScrollView>
+            </LinearLayout>
 
-</RelativeLayout>
+        </TabHost>
+
+        <Button
+            android:id="@+id/nextreg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tabhost1"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_dark"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+</ScrollView>
