@@ -76,7 +76,7 @@ public class Upload extends Fragment {
         upload_man.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                
             }
         });
 
