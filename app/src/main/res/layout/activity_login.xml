@@ -4,77 +4,112 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.bookathon.MainActivity" >
+    tools:context="com.android.bookathon.MainActivity">
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:alpha="0.7"
         android:background="@drawable/book" />
+
+    <TextView
+        android:id="@+id/textViewUserIdLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/username"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="58dp"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/activity_text_size_small" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:background="@color/text_white_secondary_70"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="250dp"
-        android:hint="  Phone Number / Email address"
-        android:textAlignment="gravity"
+        android:layout_marginTop="184dp"
+        android:background="@color/text_white_secondary_70"
         android:gravity="fill_vertical"
-        android:textColorHint="@color/text_black_100"
+        android:hint="  Username"
+        android:textAlignment="gravity"
         android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textViewUserIdMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/alert"
+        android:textSize="@dimen/activity_text_padding"
+        android:layout_margin="5dp"
+        android:layout_below="@id/username"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textViewUserPasswordLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewUserIdMessage"
+        android:layout_centerHorizontal="true"
+        android:text=" "
+        android:textSize="@dimen/activity_text_size_small"
+        android:layout_marginTop="5dp" />
 
     <EditText
         android:id="@+id/passwdtxt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/username"
+        android:layout_below="@id/textViewUserPasswordLabel"
         android:layout_marginLeft="20dp"
-        android:background="@color/text_white_secondary_70"
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
+        android:background="@color/text_white_secondary_70"
         android:hint="  Password"
-        android:textColorHint="@android:color/background_dark"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/passfor"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewUserPasswordMessage"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/passwdtxt"
-        android:layout_alignRight="@+id/passwdtxt"
-        android:layout_below="@+id/passwdtxt"
-        android:textColor="@color/textPrimary"
-        android:gravity="center"
-        android:text="Forgot Password?"
-        android:onClick="forgotPass"
-        android:textColorHighlight="@android:color/white"/>
+        android:layout_below="@id/passwdtxt"
+        android:layout_centerHorizontal="true"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/alert"
+        android:textSize="@dimen/activity_text_padding" />
 
     <TextView
-        android:id="@+id/Register"
+        android:id="@+id/textViewUserForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:onClick="Register"
-        android:text="New User? Register"
-        android:textSize="15dp"
-        android:layout_below="@+id/fblogin"
+        android:layout_alignEnd="@id/passwdtxt"
+        android:layout_alignRight="@id/passwdtxt"
+        android:layout_below="@id/textViewUserPasswordMessage"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/text_white_text_icons_100"
-        />
+        android:onClick="forgotPassword"
+        android:text="Forgot Password?"
+        android:textColor="@color/textPrimary"
+        android:textColorHighlight="@android:color/white"
+        android:textSize="16dp" />
 
     <Button
-        android:id="@+id/Login"
+        android:id="@+id/buttonLogIn"
         android:layout_width="match_parent"
         android:layout_height="80px"
-        android:layout_below="@+id/passfor"
+        android:layout_below="@id/textViewUserForgotPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
         android:layout_margin="20dp"
+        android:layout_marginTop="26dp"
         android:background="@color/text_white_secondary_70"
         android:gravity="fill_vertical"
+        android:onClick="logIn"
         android:text="Login"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -84,10 +119,23 @@
         android:id="@+id/fblogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLogIn"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/Login"
-         />
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/textViewUserSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fblogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="signUp"
+        android:text="New User? Register"
+        android:textColor="@color/text_white_text_icons_100"
+        android:textSize="15dp" />
 
 </RelativeLayout>

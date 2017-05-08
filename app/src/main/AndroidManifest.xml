@@ -7,7 +7,33 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERAL_CONTENT_URI" />
+    <uses-permission android:name="android.permission.INTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.bookathon.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.android.bookathon.permission.MAPS_RECEIVE" />
+
+    <permission
+        android:name="com.android.bookathon.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.android.bookathon.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -35,23 +61,204 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity
-            android:name=".Register"
-            android:label="Register" />
         <activity android:name=".mailRegister" />
         <activity android:name=".phoneRegister" />
         <activity android:name=".MainPage" />
-        <activity
-            android:name=".UploadManual"
-            android:label="Upload Manually" />
         <activity
             android:name=".Account_Settings"
             android:label="Account Settings" />
         <activity
             android:name=".ChangePassword"
             android:label="Change Password" />
-        <activity android:name=".Verify_otp"
-            android:label="Verify"></activity>
+        <activity android:name=".RegisterUser" />
+        <activity android:name=".SignUpConfirm" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".NewPassword" />
+
+        <meta-data
+            android:name="com.applozic.application.key"
+            android:value="793c699464daaeb44ede506930471d01" /> <!-- Applozic Application Key -->
+
+        <meta-data
+            android:name="com.applozic.mobicomkit.notification.icon"
+            android:resource="@mipmap/ic_launcher" /> <!-- Launcher Icon -->
+
+        <meta-data
+            android:name="com.applozic.mobicomkit.notification.smallIcon"
+            android:resource="@mipmap/ic_launcher" /> <!-- Launcher white Icon -->
+        <meta-data
+            android:name="share_text"
+            android:value="Welcome to our Application" /> <!-- Invite Message -->
+
+        <meta-data
+            android:name="main_folder_name"
+            android:value="@string/default_media_location_folder" /> <!-- Attachment Folder Name -->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAYB1vPc4cpn_FJv68eS_ZGe1UasBNwxLI" /> <!-- Replace with your geo api key from google developer console -->
+        <!-- For testing purpose use AIzaSyAYB1vPc4cpn_FJv68eS_ZGe1UasBNwxLI -->
+
+        <meta-data
+            android:name="activity.open.on.notification"
+            android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" /> <!-- NOTE : Do NOT change this value -->
+        <meta-data
+            android:name="com.package.name"
+            android:value="${applicationId}" /> <!-- NOTE: Do NOT change this, it should remain same i.e 'com.package.name' -->
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <receiver android:name="com.applozic.mobicomkit.uiwidgets.notification.MTNotificationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="${applicationId}.send.notification" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:parentActivityName=".MainPage"
+            android:theme="@style/ApplozicTheme">
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainPage" />
+        </activity>
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.people.activity.MobiComKitPeopleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/activity_contacts_list"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme"
+            android:windowSoftInputMode="adjustResize">
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable_contacts" />
+        </activity>
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.FullScreenImageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="Image"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/Applozic_FullScreen_Theme">
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+        </activity>
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ContactSelectionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+        </activity>
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelCreateActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+        </activity>
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelNameActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme" />
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ChannelInfoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+        </activity>
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.MobiComAttachmentSelectorActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" />
+        </activity>
+        <activity
+            android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.MobicomLocationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+            android:theme="@style/ApplozicTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.MessageIntentService"
+            android:exported="false" />
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.ApplozicIntentService"
+            android:exported="false" />
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.ApplozicMqttIntentService"
+            android:exported="false" />
+        <service
+            android:name="com.applozic.mobicomkit.api.people.UserIntentService"
+            android:exported="false" />
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.ConversationIntentService"
+            android:exported="false" />
+
+        <receiver android:name="com.applozic.mobicomkit.broadcast.TimeChangeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.applozic.mobicomkit.broadcast.ConnectivityReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".UploadManual"></activity>
     </application>
 
 </manifest>

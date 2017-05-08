@@ -3,133 +3,148 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.android.bookathon.UserProfile"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.android.bookathon.UserProfile">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@android:color/transparent" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent" >
 
-        </RelativeLayout>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/profileview"
+            android:layout_above="@+id/profilebutton"
+            android:layout_centerHorizontal="true" />
 
-        <RelativeLayout
-            android:layout_width="356dp"
-            android:layout_height="match_parent"
+        <Button
+            android:text=" "
+            android:id="@+id/profilebutton"
+            android:layout_width="30dp"
+            android:onClick="OpenGallery"
+            android:background="@drawable/ic_account_circle_white_64dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@id/profileview"
+            android:layout_marginBottom="18dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="356dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Name"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView14"
+            android:layout_marginTop="40dp"
+            android:text="Gender"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/textView14"
+            android:layout_alignBottom="@id/textView14"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_toEndOf="@id/gender"
+            android:layout_toRightOf="@id/gender"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/editText6"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/gender"
             android:background="@android:color/transparent"
-            android:layout_gravity="center">
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Name"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp" />
+            app:srcCompat="@drawable/boybutton" />
 
 
-            <EditText
-                android:id="@+id/editText6"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView14"
-                android:layout_alignBottom="@+id/textView14"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
-                android:layout_toEndOf="@+id/textView15"
-                android:layout_toRightOf="@+id/textView15"
-                android:textSize="16sp" />
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/editText6"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/imageButton"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/girlbutton" />
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView14"
-                android:layout_marginTop="40dp"
-                android:text="Gender"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp" />
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gender"
+            android:layout_marginTop="40dp"
+            android:text="Email"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageButton3"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/textView16"
+            android:textSize="16sp" />
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/editText6"
-                android:layout_marginBottom="30dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="30dp"
-                android:layout_toRightOf="@id/textView15"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/boybutton" />
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView16"
+            android:layout_marginTop="40dp"
+            android:text="Contact"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
+        <EditText
+            android:id="@+id/editText8"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText7"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/textView17"
+            android:ems="10"
+            android:textSize="16sp"/>
 
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/editText6"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_toRightOf="@+id/imageButton"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/girlbutton" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_red_dark"
+            android:text="Save"
+            android:textColor="@android:color/white" />
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView15"
-                android:layout_marginTop="40dp"
-                android:text="Email"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/editText7"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageButton3"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/textView16"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView16"
-                android:layout_marginTop="40dp"
-                android:text="Contact"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/editText8"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/editText7"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/textView17"
-                android:ems="10"
-                android:textSize="16sp"/>
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/editText8"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/holo_red_dark"
-                android:text="Save"
-                android:textColor="@android:color/white" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 
-    </LinearLayout>
-
+</LinearLayout>

@@ -1,68 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <include
         android:id="@+id/tool_bar"
         layout="@layout/toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <TextView
-        android:layout_marginTop="20dp"
-        android:id="@+id/existpass_textview"
-        android:paddingLeft="16dp"
+
+    <Space
+        android:id="@+id/space_ChangePass_1"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Existing Password"
-        android:textSize="20dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/text_black_100"/>
-    <EditText
-        android:id="@+id/exist_edittext"
-        android:layout_marginLeft="16dp"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:textSize="16dp"
-        android:textColor="@color/text_black_100"
-        android:inputType="textPassword" />
+        android:layout_height="10dp"
+        android:layout_below="@+id/textViewChangePassTitle"
+        android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/newpass_textview"
-        android:paddingLeft="16dp"
+        android:id="@+id/textViewChangePassMessage"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="New Password"
-        android:textSize="20dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/text_black_100"/>
-    <EditText
-        android:id="@+id/newpass_edittext"
-        android:layout_marginLeft="16dp"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:textSize="16dp"
-        android:textColor="@color/text_black_100"
-        android:autoText="false"
-        android:inputType="textPassword" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space_ChangePass_1"
+        android:layout_centerHorizontal="true"
+        android:text="Enter your current password"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="20dp" />
+
+    <Space
+        android:id="@+id/space_ChangePass_1A"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/textViewChangePassMessage"
+        android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/confirmpass_textview"
-        android:paddingLeft="16dp"
+        android:id="@+id/textViewChangePassCurrPassLabel"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Confirm Password"
-        android:textSize="20dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/text_black_100"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space_ChangePass_1A"
+        android:layout_centerHorizontal="true"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/activity_text_size_small" />
+
     <EditText
-        android:id="@+id/confirmpass_edittext"
-        android:layout_marginLeft="16dp"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:textSize="16dp"
-        android:textColor="@color/text_black_100"
-        android:inputType="textPassword" />
+        android:id="@+id/editTextChangePassCurrPass"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_text_height"
+        android:layout_below="@id/textViewChangePassCurrPassLabel"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/text_border_selector"
+        android:hint="Current password"
+        android:inputType="textPassword"
+        android:paddingLeft="@dimen/activity_text_padding"
+        android:paddingRight="@dimen/activity_text_padding" />
+
+    <TextView
+        android:id="@+id/textViewChangePassCurrPassMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextChangePassCurrPass"
+        android:layout_centerHorizontal="true"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/alert"
+        android:textSize="@dimen/activity_text_padding" />
+
+    <TextView
+        android:id="@+id/textViewChangePassNewPassLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewChangePassCurrPassMessage"
+        android:layout_centerHorizontal="true"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/activity_text_size_small" />
+
+    <TextView
+        android:id="@+id/textViewChangePassMessage2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your new password"
+        android:textSize="20dp"
+        android:layout_marginBottom="50dp"/>
+
+    <EditText
+        android:id="@+id/editTextChangePassNewPass"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_text_height"
+        android:layout_below="@id/textViewChangePassMessage2"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/text_border_selector"
+        android:hint="New password"
+        android:inputType="textPassword"
+        android:paddingLeft="@dimen/activity_text_padding"
+        android:paddingRight="@dimen/activity_text_padding" />
+
+    <TextView
+        android:id="@+id/textViewChangePassNewPassMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextChangePassNewPass"
+        android:layout_centerHorizontal="true"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/alert"
+        android:textSize="@dimen/activity_text_padding" />
+
+    <Space
+        android:id="@+id/space_ChangePass_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_intra_group_separation"
+        android:layout_below="@id/textViewChangePassNewPassMessage" />
+
+    <Button
+        android:id="@+id/change_pass_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_button_height"
+        android:layout_below="@id/space_ChangePass_2"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_red_dark"
+        android:text="Change password"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/activity_button_text_size" />
+
+    <Space
+        android:id="@+id/space_ChangePass_3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_intra_group_separation"
+        android:layout_below="@id/change_pass_button" />
 
 
 </LinearLayout>

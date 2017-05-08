@@ -1,5 +1,6 @@
 package com.android.bookathon;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -12,6 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserDetails;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserSession;
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
+
 
 public class MainPage extends AppCompatActivity {
 
@@ -20,6 +27,11 @@ public class MainPage extends AppCompatActivity {
     NavigationView navigationView;
     FragmentManager fm;
     FragmentTransaction ft;
+
+    private CognitoUser user;
+    private String username;
+    private CognitoUserDetails details;
+    private CognitoUserSession session;
 
 
     @Override
@@ -82,9 +94,7 @@ public class MainPage extends AppCompatActivity {
 
                 if(item.getItemId()==R.id.logout)
                 {
-                    FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                    fragmentTransaction.replace(R.id.frame_layout, new post_request()).commit();
-                    getSupportActionBar().setTitle("Logout");
+                    signOut();
                 }
 
                 if(item.getItemId()==R.id.about_id)
@@ -94,8 +104,10 @@ public class MainPage extends AppCompatActivity {
                     getSupportActionBar().setTitle("About Us");
                 }
 
+
                 return false;
             }
+
         });
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
@@ -106,12 +118,22 @@ public class MainPage extends AppCompatActivity {
 
     }
 
+    private void signOut() {
+        final AccessToken fbAccessToken = AccessToken.getCurrentAccessToken();
+        if (fbAccessToken != null) {
+            LoginManager.getInstance().logOut();
+        }
+        username = AppHelper.getCurrUser();
+        user = AppHelper.getPool().getUser(username);
+        user.signOut();
+        exit();
+
+    }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        return false;
+        return true;
     }
 
     @Override
@@ -122,6 +144,19 @@ public class MainPage extends AppCompatActivity {
 
 
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        exit();
+    }
+    private void exit () {
+        Intent intent = new Intent();
+        if(username == null)
+            username = "";
+        intent.putExtra("name",username);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 }

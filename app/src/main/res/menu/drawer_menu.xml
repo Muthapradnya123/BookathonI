@@ -33,11 +33,6 @@
             android:icon="@drawable/ic_settings_black_24dp">
         </item>
         <item
-            android:id="@+id/logout"
-            android:title="Logout"
-            android:icon="@drawable/ic_exit_to_app_black_24dp">
-        </item>
-        <item
         android:id="@+id/help_id"
             android:title="Help"
             android:icon="@drawable/ic_help_white_24dp">
@@ -51,6 +46,11 @@
             android:id="@+id/about_id"
             android:title="About"
             android:icon="@drawable/ic_info_white_24dp">
+        </item>
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp">
         </item>
     </group>
 
