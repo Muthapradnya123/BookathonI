@@ -1,43 +1,34 @@
 package com.android.Models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class Upload_Post {
-    @SerializedName("author")
-    private String author;
-    @SerializedName("book_name")
-    private String b_name;
+
+    @SerializedName("Items")
+    @Expose
+    private ArrayList<ItemList> items = new ArrayList<>();
+
     @SerializedName("copies")
     private int copies;
-    @SerializedName("imagelink")
-    private String imglink;
     @SerializedName("isbn")
     private String isbn;
-    @SerializedName("category")
-    private String category;
     private String username;
+
+    public ArrayList<ItemList> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<ItemList> items) {
+        this.items = items;
+    }
 
     public Upload_Post(String isbn,int copies,String username) {
         this.isbn = isbn;
         this.copies = copies;
         this.username = username;
     }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getB_name() {
-        return b_name;
-    }
-
-    public String getImglink() {
-        return imglink;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
 
 }

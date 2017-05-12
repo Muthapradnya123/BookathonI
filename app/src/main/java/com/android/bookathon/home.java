@@ -11,9 +11,6 @@ import android.view.ViewGroup;
 
 import com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class home extends Fragment {
 
 
@@ -21,12 +18,13 @@ public class home extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =inflater.inflate(R.layout.fragment_home, container, false);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

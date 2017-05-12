@@ -14,10 +14,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.android.Models.ItemList;
+import com.android.Models.ManUpload;
 import com.android.Models.Upload_Post;
 import com.android.Rest.ApiInterface;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,11 +36,13 @@ public class Upload extends Fragment {
 
     EditText isbn_edit;
     EditText copies;
+    EditText mcopies;
+    EditText mname;
     ImageButton camera;
     Button upload_scan,upload_man;
-    Button ManualUpload;
 
     private String isbnCode,toast;
+    ArrayList<ItemList> up_post1;
 
     public Upload() {
         // Required empty public constructor
@@ -48,7 +54,10 @@ public class Upload extends Fragment {
 
         isbn_edit = (EditText) v.findViewById(R.id.isbn_edit);
         copies = (EditText) v.findViewById(R.id.copy_edit);
+        mname = (EditText) v.findViewById(R.id.mname_edittext);
+        mcopies = (EditText) v.findViewById(R.id.mcopy_edit);
 
+        final String username = AppHelper.getCurrUser();
         upload_scan = (Button) v.findViewById(R.id.upload);
         upload_scan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +70,6 @@ public class Upload extends Fragment {
                 }
                 else
                 {
-                    final String username = AppHelper.getCurrUser();
                     Upload_Post up_post = new Upload_Post(isbn_edit.getText().toString(),
                             Integer.parseInt(copies.getText().toString()),username);
 
@@ -76,7 +84,20 @@ public class Upload extends Fragment {
         upload_man.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                if(mname.getText().toString().length()==0 || mcopies.getText().toString().length()==0)
+                {
+                    toast = "Please write book name and also enter the copies";
+                    displayToast();
+                }
+                else
+                {
+                   ManUpload man_post = new ManUpload(mname.getText().toString(),
+                            Integer.parseInt(mcopies.getText().toString()),username);
+
+                    sendNetworkRequest1(man_post);
+
+                }
+
             }
         });
 
@@ -94,7 +115,35 @@ public class Upload extends Fragment {
         return v;
     }
 
-    private void sendNetworkRequest(Upload_Post up_post) {
+    private void sendNetworkRequest1(ManUpload man_post) {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("https://5if76yvnq0.execute-api.us-west-2.amazonaws.com/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        //get client and call object for the request
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<ManUpload> call1 = apiInterface.ManualUpload(man_post);
+
+        call1.enqueue(new Callback<ManUpload>() {
+            @Override
+            public void onResponse(Call<ManUpload> call, Response<ManUpload> response) {
+                Toast.makeText(getActivity(), "Yes uploading was successful ", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(),Upload_Result.class);
+                startActivity(i);
+
+            }
+
+            @Override
+            public void onFailure(Call<ManUpload> call, Throwable t) {
+                Toast.makeText(getActivity(), "Something went wrong! ", Toast.LENGTH_SHORT).show();
+                Log.d("The ", "Exception is", t);
+            }
+        });
+    }
+
+    private void sendNetworkRequest(final Upload_Post up_post) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("https://5if76yvnq0.execute-api.us-west-2.amazonaws.com/")
                 .addConverterFactory(GsonConverterFactory.create());
@@ -109,11 +158,10 @@ public class Upload extends Fragment {
             @Override
             public void onResponse(Call<Upload_Post> call, Response<Upload_Post> response) {
                 Toast.makeText(getActivity(), "Yes uploading was successful ", Toast.LENGTH_SHORT).show();
-                response.body(); // have your all data
-                String userName = response.body().getAuthor();
-                String level = response.body().getCategory();
-                Log.d("Author",""+userName);
-
+                up_post1 = response.body().getItems();
+                Intent i = new Intent(getActivity(),Upload_Result.class);
+                i.putExtra("Objects",up_post1);
+                startActivity(i);
             }
 
             @Override

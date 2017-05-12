@@ -258,7 +258,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".UploadManual"></activity>
+        <activity android:name=".Upload_Result"></activity>
     </application>
 
 </manifest>

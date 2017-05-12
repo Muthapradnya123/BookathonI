@@ -1,5 +1,6 @@
 package com.android.Rest;
 
+import com.android.Models.ManUpload;
 import com.android.Models.Request_post;
 import com.android.Models.Upload_Post;
 
@@ -19,4 +20,6 @@ public interface ApiInterface {
     @POST("isbn/isbn")
     Call<Upload_Post> UploadRequest(@Body Upload_Post upload_post);
 
+    @POST("manupload/manupload")
+    Call<ManUpload> ManualUpload(@Body ManUpload man_post);
 }
