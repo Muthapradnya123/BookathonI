@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.android.Models.ItemList;
+import com.android.Models.BItems;
 import com.android.Models.ManUpload;
 import com.android.Models.Upload_Post;
 import com.android.Rest.ApiInterface;
@@ -40,9 +40,8 @@ public class Upload extends Fragment {
     EditText mname;
     ImageButton camera;
     Button upload_scan,upload_man;
-
+    private ArrayList<BItems> itemsList;
     private String isbnCode,toast;
-    ArrayList<ItemList> up_post1;
 
     public Upload() {
         // Required empty public constructor
@@ -130,8 +129,6 @@ public class Upload extends Fragment {
             @Override
             public void onResponse(Call<ManUpload> call, Response<ManUpload> response) {
                 Toast.makeText(getActivity(), "Yes uploading was successful ", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getActivity(),Upload_Result.class);
-                startActivity(i);
 
             }
 
@@ -158,10 +155,6 @@ public class Upload extends Fragment {
             @Override
             public void onResponse(Call<Upload_Post> call, Response<Upload_Post> response) {
                 Toast.makeText(getActivity(), "Yes uploading was successful ", Toast.LENGTH_SHORT).show();
-                up_post1 = response.body().getItems();
-                Intent i = new Intent(getActivity(),Upload_Result.class);
-                i.putExtra("Objects",up_post1);
-                startActivity(i);
             }
 
             @Override

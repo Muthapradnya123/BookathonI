@@ -21,7 +21,7 @@ public class Account_Settings extends AppCompatActivity {
         setContentView(R.layout.account_settings);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(" Account Settings");
+        getSupportActionBar().setTitle("Account Settings");
 
 
         changePass = (TextView) findViewById(R.id.change_pass);

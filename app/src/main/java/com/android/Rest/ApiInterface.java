@@ -1,11 +1,14 @@
 package com.android.Rest;
 
+import com.android.Models.ActivityTrans;
+import com.android.Models.BookList;
 import com.android.Models.ManUpload;
 import com.android.Models.Request_post;
 import com.android.Models.Upload_Post;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -22,4 +25,15 @@ public interface ApiInterface {
 
     @POST("manupload/manupload")
     Call<ManUpload> ManualUpload(@Body ManUpload man_post);
+
+    @GET("displayallbook/displayallbooks")
+    Call<BookList> getMyJSON();
+
+    @POST("activity/activity")
+    Call<BookList> Activity(@Body ActivityTrans at);
+
+    @POST("activitydelete/activitydelete")
+    Call<ActivityTrans> ActivityDelete(@Body ActivityTrans at);
+
+
 }

@@ -43,6 +43,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile project(':mobicomkitui')
     compile 'de.hdodenhof:circleimageview:1.2.2'
     compile 'com.mcxiaoke.volley:library:1.0.15'
     compile 'com.android.support:appcompat-v7:25.0.2'
@@ -51,7 +52,6 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.2'
     compile 'com.android.support:support-vector-drawable:25.0.2'
     compile 'com.journeyapps:zxing-android-embedded:3.5.0'
-    compile 'com.applozic.communication.uiwidget:mobicomkitui:4.83'
     compile 'com.google.android.gms:play-services-analytics:10.2.1'
     compile 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.3.2'
     compile 'com.amazonaws:aws-android-sdk-core:2.2.+'
@@ -63,7 +63,7 @@ dependencies {
     compile 'com.google.firebase:firebase-core:10.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.apis:google-api-services-books:v1-rev92-1.22.0'
-    compile 'com.amazonaws:aws-android-sdk-ddb:2.2.+'
-    compile 'com.amazonaws:aws-android-sdk-ddb-mapper:2.2.+'
+    compile 'com.squareup.picasso:picasso:2.4.0'
     testCompile 'junit:junit:4.12'
 }
+apply plugin: 'com.google.gms.google-services'
